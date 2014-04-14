@@ -108,12 +108,12 @@ describe 'Default style guide' do
 
   describe 'colon white space' do
     it 'does not have violation' do
-      expect(violations_in('class foo; bar; end')).to be_empty
+      expect(violations_in('admin? ? true : false')).to be_empty
     end
 
     it 'has violation' do
-      expect(violations_in('class foo;bar; end')).to eq [
-        'Space missing after semicolon.'
+      expect(violations_in('admin? ? true: false')).to eq [
+        "Surrounding space missing for operator ':'."
       ]
     end
   end
