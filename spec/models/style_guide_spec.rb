@@ -8,7 +8,9 @@ describe 'Default style guide' do
   describe 'inline comments' do
     it 'does not have a violation' do
       pending
-      expect(violations_in('def foo # bad method')).to eq ['Avoid inline comments']
+      expect(violations_in('def foo # bad method')).to eq [
+        'Avoid inline comments'
+      ]
     end
   end
 
