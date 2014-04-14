@@ -138,9 +138,8 @@ describe 'Default style guide' do
     end
 
     it 'has violation' do
-      expect(violations_in("def foo\n  bar\nend\ndef bar\n  foo\nend")).to eq [
-        'Use empty lines between defs.'
-      ]
+      expect(violations_in("def foo\n  bar\nend\ndef bar\n  foo\nend")).
+        to eq [ 'Use empty lines between defs.' ]
     end
   end
 
