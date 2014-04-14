@@ -3,6 +3,7 @@ require 'fast_spec_helper'
 require 'app/models/style_checker'
 require 'app/models/file_violation'
 require 'app/models/line_violation'
+require 'active_support/core_ext/string/strip'
 
 describe 'Default style guide' do
   describe 'inline comments' do
@@ -120,7 +121,12 @@ describe 'Default style guide' do
 
   describe 'multiline method chaining' do
     it 'does not have violation' do
-      expect(violations_in("foo.\nbar.\nbaz")).to be_empty
+      content = <<-CONTENT.strip_heredoc.sub(/\n$/, '')
+        foo.
+        bar.
+        baz
+      CONTENT
+      expect(violations_in(content)).to be_empty
     end
 
     it 'has violation' do
