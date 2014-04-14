@@ -70,11 +70,11 @@ describe 'Default style guide' do
 
   describe 'curly brackets and pipe white space' do
     it 'does not have violation' do
-      expect(violations_in('ary.map { |a| a.something }')).to  be_empty
+      expect(violations_in('ary.map { |a| a.something }')).to be_empty
     end
 
     it 'has violation' do
-      expect(violations_in('ary.map{|a| a.something}')).  to eq [
+      expect(violations_in('ary.map{|a| a.something}')).to eq [
         'Space missing to the left of {.',
         'Space between { and | missing.',
         'Space missing inside }.'
@@ -84,11 +84,11 @@ describe 'Default style guide' do
 
   describe 'comma white space' do
     it 'does not have violation' do
-      expect(violations_in('def foobar(a, b, c)')).to  be_empty
+      expect(violations_in('def foobar(a, b, c)')).to be_empty
     end
 
     it 'has violation' do
-      expect(violations_in('def foobar(a,b,c)')).  to eq [
+      expect(violations_in('def foobar(a,b,c)')).to eq [
         'Space missing after comma.'
       ]
     end
@@ -96,11 +96,11 @@ describe 'Default style guide' do
 
   describe 'semicolon white space' do
     it 'does not have violation' do
-      expect(violations_in('class foo; bar; end')).to  be_empty
+      expect(violations_in('class foo; bar; end')).to be_empty
     end
 
     it 'has violation' do
-      expect(violations_in('class foo;bar; end')).  to eq [
+      expect(violations_in('class foo;bar; end')).to eq [
         'Space missing after semicolon.'
       ]
     end
@@ -108,11 +108,11 @@ describe 'Default style guide' do
 
   describe 'colon white space' do
     it 'does not have violation' do
-      expect(violations_in('class foo; bar; end')).to  be_empty
+      expect(violations_in('class foo; bar; end')).to be_empty
     end
 
     it 'has violation' do
-      expect(violations_in('class foo;bar; end')).  to eq [
+      expect(violations_in('class foo;bar; end')).to eq [
         'Space missing after semicolon.'
       ]
     end
