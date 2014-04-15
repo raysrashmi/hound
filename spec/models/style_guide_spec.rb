@@ -123,8 +123,8 @@ describe 'Default style guide' do
     it 'does not have violation' do
       content = strip_heredoc <<-CONTENT
         foo.
-        bar.
-        baz
+          bar.
+          baz
       CONTENT
       expect(violations_in(content)).to be_empty
     end
@@ -139,7 +139,17 @@ describe 'Default style guide' do
 
   describe 'empty line between methods' do
     it 'does not have violation' do
-      expect(violations_in("def foo\n  bar\nend\n\ndef bar\n  foo\nend")).
+      content = strip_heredoc <<-CONTENT
+        def foo
+          bar
+        end
+
+        def bar
+          foo
+        end
+      CONTENT
+      puts violations_in(content)
+      expect(violations_in(content)).
         to be_empty
     end
 
@@ -192,6 +202,6 @@ describe 'Default style guide' do
   end
 
   def strip_heredoc(text)
-    text.strip_heredoc.sub(/\n$/, '')
+    text.strip_heredoc.sub(/\n\Z/, '')
   end
 end
