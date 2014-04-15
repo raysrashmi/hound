@@ -121,7 +121,7 @@ describe 'Default style guide' do
 
   describe 'multiline method chaining' do
     it 'does not have violation' do
-      content = <<-CONTENT.strip_heredoc.sub(/\n$/, '')
+      content = strip_heredoc <<-CONTENT
         foo.
         bar.
         baz
@@ -189,5 +189,9 @@ describe 'Default style guide' do
     violations = StyleChecker.new([modified_file]).violations
 
     violations.flat_map(&:line_violations).flat_map(&:messages)
+  end
+
+  def strip_heredoc(text)
+    text.strip_heredoc.sub(/\n$/, '')
   end
 end
